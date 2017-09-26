@@ -1,4 +1,4 @@
-class GitHubDocument {
+export default class GitHubDocument {
     /**
      * Defines a general GitHub document by passing the html string of the site
      * @param {String} htmlString
@@ -13,5 +13,3 @@ class GitHubDocument {
         return doc;
     }
 }
-
-export { GitHubDocument };

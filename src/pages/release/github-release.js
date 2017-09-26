@@ -1,4 +1,4 @@
-class GitHubRelease {
+export default class GitHubRelease {
     /**
      * Defines some important html elements to access its information
      * @param {HTMLElement} releaseElement
@@ -43,5 +43,3 @@ class GitHubRelease {
     }
 
 }
-
-export { GitHubRelease };

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { GitHubDocument } from '../../pages/github-document';
-import { GitHubRelease } from '../../pages/release/github-release';
+import GitHubDocument from '../../pages/github-document';
+import GitHubRelease from '../../pages/release/github-release';
 
-class GitHubReleasePage extends GitHubDocument {
+export default class GitHubReleasePage extends GitHubDocument {
     /**
      * Creates a document out of the passed html string by calling the GitHubDocument's constructor
      */
@@ -34,5 +34,3 @@ class GitHubReleasePage extends GitHubDocument {
                 .map(releaseElement => new GitHubRelease(releaseElement)) : [];
     }
 }
-
-export { GitHubReleasePage };

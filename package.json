@@ -1,18 +1,22 @@
 {
     "name": "github-crawler-lib",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "author": "Felix <felix.uellendall@gmx.de>",
     "description": "A JavaScript Library for web crawling github.com",
-    "license": null,
-    "main": "index.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/feluelle/github-crawler-lib.git"
+    },
+    "main": "lib/github-crawler.js",
     "scripts": {
         "test": "jasmine",
-        "start": "browserify src/github-crawler.js -o index.js -t [ babelify --presets [ es2015 react ] ]"
+        "build": "babel src --out-dir lib"
     },
     "devDependencies": {
-        "babel-preset-es2015": "^6.24.1",
-        "babel-preset-react": "^6.24.1",
-        "babelify": "^7.3.0",
+        "babel-cli": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.0",
         "jasmine": "^2.8.0",
         "jasmine-ajax": "^3.3.1"
     },

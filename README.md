@@ -1,6 +1,12 @@
 # github-crawler-lib
 A JavaScript Library for web crawling github.com
 
+## Installation
+
+### NPM
+
+You can install it via npm `npm install github-crawler-lib`
+
 ## GitHub's ToS
 
 According to GitHub's Terms of Service:

@@ -1,7 +1,9 @@
-import { GitHubSearchPage } from './pages/search/github-search-page';
-import { GitHubReleasePage } from './pages/release/github-release-page';
+import "babel-polyfill";
 
-class GitHubCrawler {
+import GitHubSearchPage from './pages/search/github-search-page';
+import GitHubReleasePage from './pages/release/github-release-page';
+
+export default class GitHubCrawler {
     /**
      * Gets all information needed to receive all PoE information about GitHub repositories
      * @return {Object} json
@@ -33,5 +35,3 @@ class GitHubCrawler {
         return result;
     }
 }
-
-export { GitHubCrawler };

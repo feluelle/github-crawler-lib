@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { GitHubDocument } from '../../pages/github-document';
-import { GitHubRepository } from '../../pages/repository/github-repository';
+import GitHubDocument from '../../pages/github-document';
+import GitHubRepository from '../../pages/repository/github-repository';
 
-class GitHubSearchPage extends GitHubDocument {
+export default class GitHubSearchPage extends GitHubDocument {
     /**
      * Creates a document out of the passed html string by calling the GitHubDocument's constructor
      */
@@ -34,5 +34,3 @@ class GitHubSearchPage extends GitHubDocument {
             .map(repositoryElement => new GitHubRepository(repositoryElement));
     }
 }
-
-export { GitHubSearchPage };

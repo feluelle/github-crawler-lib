@@ -1,4 +1,4 @@
-class GitHubRepository {
+export default class GitHubRepository {
     /**
      * Defines some important html elements to access its information
      * @param {HTMLElement} repositoryElement
@@ -17,5 +17,3 @@ class GitHubRepository {
             .getAttribute('href');
     }
 }
-
-export { GitHubRepository };
