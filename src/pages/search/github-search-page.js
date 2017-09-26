@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { GitHubDocument } from './pages/github-document';
-import { GitHubRepository } from './pages/repository/github-repository';
+import { GitHubDocument } from '../../pages/github-document';
+import { GitHubRepository } from '../../pages/repository/github-repository';
 
 class GitHubSearchPage extends GitHubDocument {
     /**

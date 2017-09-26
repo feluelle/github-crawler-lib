@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { GitHubDocument } from './pages/github-document';
-import { GitHubRelease } from './pages/release/github-release';
+import { GitHubDocument } from '../../pages/github-document';
+import { GitHubRelease } from '../../pages/release/github-release';
 
 class GitHubReleasePage extends GitHubDocument {
     /**
