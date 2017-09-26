@@ -4,10 +4,14 @@
     "author": "Felix <felix.uellendall@gmx.de>",
     "description": "A JavaScript Library for web crawling github.com",
     "license": null,
+    "main": "index.js",
     "scripts": {
-        "test": "jasmine"
+        "test": "jasmine",
+        "start": "babel src --out-file index.js"
     },
     "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.0",
         "jasmine": "^2.8.0",
         "jasmine-ajax": "^3.3.1"
     },
