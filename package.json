@@ -1,6 +1,6 @@
 {
     "name": "github-crawler-lib",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Felix <felix.uellendall@gmx.de>",
     "description": "A JavaScript Library for web crawling github.com",
     "license": null,
