@@ -1,6 +1,6 @@
 {
     "name": "github-crawler-lib",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "Felix <felix.uellendall@gmx.de>",
     "description": "A JavaScript Library for web crawling github.com",
     "license": "MIT",
@@ -10,17 +10,21 @@
     },
     "main": "lib/github-crawler.js",
     "scripts": {
+        "pretest": "babel spec --out-dir tests",
         "test": "jasmine",
+        "posttest": "del-cli tests",
         "build": "babel src --out-dir lib"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.6.0",
+        "del-cli": "^1.1.0",
         "jasmine": "^2.8.0",
         "jasmine-ajax": "^3.3.1"
     },
     "dependencies": {
         "axios": "^0.16.2",
-        "babel-polyfill": "^6.26.0"
+        "babel-polyfill": "^6.26.0",
+        "jsdom": "^11.2.0"
     }
 }

@@ -5,33 +5,35 @@ import GitHubReleasePage from './pages/release/github-release-page';
 
 export default class GitHubCrawler {
     /**
-     * Gets all information needed to receive all PoE information about GitHub repositories
+     * Gets all information about GitHub repositories for a specific topic
      * @return {Object} json
      */
     async getDataByTopic(topicName) {
-        const result = [];
+        const data = [];
 
-        const gitHubSearchPage = await GitHubSearchPage.request(`?q=topic:${topicName}`);
-        const repositories = gitHubSearchPage.getRepositories();
+        const gitHubSearchPages = await GitHubSearchPage.requestAll(`?q=topic:${topicName}`);
+        gitHubSearchPages.forEach(gitHubSearchPage => {
 
-        repositories.forEach(async (repository) => {
-            const title = repository.getTitle();
-            const gitHubReleasePage = await GitHubReleasePage.request(title);
-            const gitHubReleases = gitHubReleasePage.getReleases();
-            const releases = gitHubReleases.map(gitHubRelease => {
-                return {
-                    "archives": gitHubRelease.getArchives(),
-                    "tag": gitHubRelease.getTag(),
-                    "title": gitHubRelease.getTitle()
-                };
+            const repositories = gitHubSearchPage.getRepositories();
+            repositories.forEach(async repository => {
+                const title = repository.getTitle();
+                const gitHubReleasePage = await GitHubReleasePage.request(title);
+                const gitHubReleases = gitHubReleasePage.getReleases();
+                const releases = gitHubReleases.map(gitHubRelease => {
+                    return {
+                        "archives": gitHubRelease.getArchives(),
+                        "tag": gitHubRelease.getTag(),
+                        "title": gitHubRelease.getTitle()
+                    };
+                });
+
+                data.push({
+                    "title": title,
+                    "releases": releases
+                });
             });
+        })
 
-            result.push({
-                "title": title,
-                "releases": releases
-            });
-        });
-
-        return result;
+        return data;
     }
 }

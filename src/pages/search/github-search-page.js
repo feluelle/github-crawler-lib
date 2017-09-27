@@ -12,6 +12,27 @@ export default class GitHubSearchPage extends GitHubDocument {
     }
 
     /**
+     * Requests all pages of the search request
+     * @param {String} searchParams
+     * @return {Array<GitHubSearchPage>} gitHubSearchPages
+     */
+    static async requestAll(searchParams) {
+        let gitHubSearchPages = [];
+
+        const firstSearchPage = await GitHubSearchPage.request(searchParams);
+        gitHubSearchPages.push(firstSearchPage);
+
+        const totalNumberOfPages = firstSearchPage.getTotalNumberOfPages();
+
+        for (let pageNr = 2; pageNr <= totalNumberOfPages; pageNr++) {
+            const currentSearchPage = await GitHubSearchPage.request(`${searchParams}&p=${pageNr}`);
+            gitHubSearchPages.push(currentSearchPage);
+        }
+
+        return gitHubSearchPages;
+    }
+
+    /**
      * Requests the html site of /search and creates a GitHubSearchPage out of it
      * @param {String} searchParams
      * @return {GitHubSearchPage} gitHubSearchPage
@@ -32,5 +53,27 @@ export default class GitHubSearchPage extends GitHubDocument {
 
         return Array.from(repoListItems)
             .map(repositoryElement => new GitHubRepository(repositoryElement));
+    }
+
+    /**
+     * Gets the total number of repositories that were found for the current search
+     * @return {Integer} totalNumberOfRepositories
+     */
+    getTotalNumberOfRepositories() {
+        const totalNumberOfRepositoriesElement = this.doc.querySelector('.d-flex.flex-justify-between.border-bottom.pb-3 h3');
+        const totalNumberOfRepositories = totalNumberOfRepositoriesElement.innerHTML.split(' ')[0];
+
+        return totalNumberOfRepositories;
+    }
+
+    /**
+     * Gets the number of pages that were found for the current search
+     * @return {Integer} totalNumberOfPages
+     */
+    getTotalNumberOfPages() {
+        const totalNumberOfRepositories = this.getTotalNumberOfRepositories();
+        const totalNumberOfPages = totalNumberOfRepositories / 10;
+
+        return totalNumberOfRepositories > 100 ? 100 : totalNumberOfPages;
     }
 }
