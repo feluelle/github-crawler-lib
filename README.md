@@ -1,26 +1,27 @@
 # github-crawler-lib
+
 A JavaScript Library for web crawling github.com
 
 ## Installation
 
-### NPM
+You can install it via [npm](https://www.npmjs.com/)
 
-You can install it via npm `npm install github-crawler-lib`
+`npm install github-crawler-lib`
 
-## GitHub's ToS
+## Build
 
-According to GitHub's Terms of Service:
+The build task executes [babel](https://babeljs.io/) to transpile ES6 Syntax to a lower one that works in any browser.
 
-```
-5. Scraping
+`npm run build`
 
-Scraping refers to extracting data from our Website via an automated process, such as a bot or webcrawler. It does not refer to the collection of information through GitHub's API. Please see Section H for our API Terms. You may scrape the website for the following reasons:
+## Tests
 
-Researchers may scrape public, non-personal information from GitHub for research purposes, only if any publications resulting from that research are open access.
-Archivists may scrape GitHub for public data for archival purposes.
-You may not scrape GitHub for spamming purposes, including for the purposes of selling GitHub users' personal information, such as to recruiters, headhunters, and job boards.
+It uses [jasmin](https://jasmine.github.io/) for testing.
 
-All use of GitHub data gathered through scraping must comply with the GitHub Privacy Statement.
-```
+`npm test`
+
+## Additional Notes
+
+According to GitHub's Terms of Service, scraping is allowed for specific purposes.
 
 See [this](https://help.github.com/articles/github-terms-of-service/#5-scraping) for more information.
